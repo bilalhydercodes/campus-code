@@ -24,7 +24,7 @@ export const mockNotifications: NotificationItem[] = [
   {
     id: 'notif_3',
     title: 'Verification Form Required',
-    body: 'Submit your Unstop verification details before the submission window closes.',
+    body: 'Submit your CampusCode verification details before the submission window closes.',
     created_at: '1 day ago',
     is_read: true,
   },

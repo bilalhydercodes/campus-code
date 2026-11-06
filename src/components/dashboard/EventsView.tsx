@@ -28,7 +28,7 @@ type PaymentFilter = 'all' | 'free' | 'paid';
 type SortOption = 'newest' | 'ending_soon' | 'popular';
 
 const FEATURED_ITEMS = [
-  { id: 'f1', title: 'Get Unstoppable on LinkedIn' },
+  { id: 'f1', title: 'Get CampusCode on LinkedIn' },
   { id: 'f2', title: 'Tek-Qubit: Women of Impact 2026' },
   { id: 'f3', title: 'Airtel Sync 2026' },
   { id: 'f4', title: 'Dream to be an IITian?' },

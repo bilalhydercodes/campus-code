@@ -35,7 +35,7 @@ export interface FeaturedItem {
 export const mockFeaturedItems: FeaturedItem[] = [
   {
     id: 'feat_1',
-    title: 'Get Unstoppable on LinkedIn',
+    title: 'Get CampusCode on LinkedIn',
     subtitle: 'Register Now',
     logo_type: 'linkedin',
   },
