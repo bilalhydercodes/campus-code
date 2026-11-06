@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'phosphor-react';
+import { List, SignOut } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 
 export interface DashboardTopNavProps {
@@ -9,12 +9,14 @@ export interface DashboardTopNavProps {
   isSidebarCollapsed?: boolean;
   onToggleCollapse?: () => void;
   onOpenMobileDrawer?: () => void;
+  onLogout?: () => void;
 }
 
 export default function DashboardTopNav({
   activeTab = 'Events',
   userName = 'Sai',
   onOpenMobileDrawer,
+  onLogout,
 }: DashboardTopNavProps) {
   return (
     <header className="sticky top-0 z-20 flex h-[52px] w-full items-center justify-between border-b border-[#111111]/[0.08] bg-[#F7F7F4]/90 backdrop-blur-sm px-3 xs:px-4 sm:px-6 md:px-8 select-none">
@@ -52,14 +54,28 @@ export default function DashboardTopNav({
         </div>
       </div>
 
-      {/* Builder Badge Right Side */}
-      <div className="flex items-center rounded-full border border-gray-200/90 bg-white px-2.5 sm:px-3 py-1 shadow-2xs">
-        <span className="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-[0.08em] text-[#858580] mr-1 sm:mr-1.5">
-          BUILDER :
-        </span>
-        <span className="font-inter text-[11px] font-semibold text-[#111111] truncate max-w-[90px] sm:max-w-[120px]">
-          {userName || 'Sai'}
-        </span>
+      {/* Right side: Builder Badge & Logout */}
+      <div className="flex items-center gap-2">
+        <div className="flex items-center rounded-full border border-gray-200/90 bg-white px-2.5 sm:px-3 py-1 shadow-2xs">
+          <span className="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-[0.08em] text-[#858580] mr-1 sm:mr-1.5">
+            BUILDER :
+          </span>
+          <span className="font-inter text-[11px] font-semibold text-[#111111] truncate max-w-[90px] sm:max-w-[120px]">
+            {userName || 'Sai'}
+          </span>
+        </div>
+
+        {onLogout && (
+          <button
+            type="button"
+            onClick={onLogout}
+            title="Log out of account"
+            className="flex items-center gap-1.5 rounded-full border border-gray-200/90 bg-white hover:bg-red-50 hover:border-red-200 hover:text-red-600 px-2.5 sm:px-3 py-1 text-gray-600 transition-all text-[11px] font-medium shadow-2xs cursor-pointer active:scale-95"
+          >
+            <SignOut size={14} className="w-3.5 h-3.5" />
+            <span className="hidden xs:inline">Log out</span>
+          </button>
+        )}
       </div>
     </header>
   );

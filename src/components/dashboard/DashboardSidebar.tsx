@@ -215,6 +215,16 @@ export default function DashboardSidebar({
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#111111] font-inter text-[12px] font-bold text-white">
               {userName ? userName.charAt(0).toUpperCase() : 'S'}
             </div>
+            {onLogout && (
+              <button
+                type="button"
+                onClick={onLogout}
+                title="Log out"
+                className="flex h-7 w-7 items-center justify-center rounded-md text-gray-500 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+              >
+                <SignOut size={16} />
+              </button>
+            )}
             {onToggleCollapse && (
               <button
                 type="button"
@@ -304,18 +314,30 @@ export default function DashboardSidebar({
           <div className="mb-2 font-mono text-[9.5px] font-semibold uppercase tracking-[0.1em] text-[#7A7A75]">
             ACCOUNT
           </div>
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#111111] font-inter text-[12px] font-bold text-white">
-              {userName ? userName.charAt(0).toUpperCase() : 'S'}
-            </div>
-            <div className="min-w-0 flex-1">
-              <div className="truncate font-inter text-[13px] font-medium leading-tight text-[#111111]">
-                {userName || 'Sai'}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#111111] font-inter text-[12px] font-bold text-white">
+                {userName ? userName.charAt(0).toUpperCase() : 'S'}
               </div>
-              <div className="truncate font-inter text-[11px] text-[#7A7A75]">
-                Verified builder
+              <div className="min-w-0 flex-1">
+                <div className="truncate font-inter text-[13px] font-medium leading-tight text-[#111111]">
+                  {userName || 'Sai'}
+                </div>
+                <div className="truncate font-inter text-[11px] text-[#7A7A75]">
+                  Verified builder
+                </div>
               </div>
             </div>
+            {onLogout && (
+              <button
+                type="button"
+                onClick={onLogout}
+                title="Log out"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-gray-500 hover:bg-red-50 hover:text-red-600 transition-colors cursor-pointer"
+              >
+                <SignOut size={16} />
+              </button>
+            )}
           </div>
         </div>
       </aside>

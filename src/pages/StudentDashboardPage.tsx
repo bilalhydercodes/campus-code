@@ -101,6 +101,7 @@ export default function StudentDashboardPage() {
             isSidebarCollapsed={isSidebarCollapsed}
             onToggleCollapse={() => setIsSidebarCollapsed((prev) => !prev)}
             onOpenMobileDrawer={() => setIsMobileDrawerOpen(true)}
+            onLogout={handleLogout}
           />
 
           <main className="relative z-10 flex-1 px-3 xs:px-4 sm:px-6 md:px-10 lg:px-12 pt-5 pb-24 md:pb-12 overflow-x-hidden">

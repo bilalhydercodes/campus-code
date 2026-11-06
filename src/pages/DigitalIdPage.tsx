@@ -69,6 +69,7 @@ export default function DigitalIdPage() {
           isSidebarCollapsed={isSidebarCollapsed}
           onToggleCollapse={() => setIsSidebarCollapsed((prev) => !prev)}
           onOpenMobileDrawer={() => setIsMobileDrawerOpen(true)}
+          onLogout={handleLogout}
         />
         <main className="relative z-10 flex flex-1 overflow-hidden p-2 xs:p-4 sm:p-6">
           <DigitalIdView fullscreen />
