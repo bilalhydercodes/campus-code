@@ -14,7 +14,8 @@ import { SquaresFour, Trophy, CalendarCheck, CreditCard, List } from 'phosphor-r
 export default function StudentDashboardPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState(location.state?.initialTab || 'My Events');
+  const queryTab = new URLSearchParams(location.search).get('tab');
+  const [activeTab, setActiveTab] = useState(queryTab || location.state?.initialTab || 'Overview');
   const [user, setUser] = useState<UserProfile>({ ...mockUser, name: 'Sai' });
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);

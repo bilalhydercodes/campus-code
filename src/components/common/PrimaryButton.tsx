@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   to?: string;
   href?: string;
-  variant?: "primary" | "secondary" | "purple" | "outline";
+  variant?: "primary" | "secondary" | "purple" | "outline" | "white";
   size?: "sm" | "md" | "lg";
   icon?: "arrow-pill" | "arrow-lime" | "none";
   children: React.ReactNode;
@@ -39,6 +39,8 @@ export function PrimaryButton({
       "bg-[#7665FF] text-white hover:bg-[#6352F0] shadow-xs active:scale-[0.99]",
     outline:
       "bg-transparent text-[#111111] border border-[#111111]/20 hover:bg-[#111111]/[0.04] active:scale-[0.99]",
+    white:
+      "bg-white !text-[#111111] hover:bg-[#F2F2EE] shadow-sm active:scale-[0.99]",
   };
 
   const sizeClasses = {
@@ -47,20 +49,26 @@ export function PrimaryButton({
     lg: "h-12 px-7 text-[15px] rounded-full gap-3",
   };
 
-  const iconSizes = {
-    sm: "h-4 w-4",
-    md: "h-5 w-5",
-    lg: "h-6 w-6",
+  const iconContainerSizes = {
+    sm: "h-5 w-5",
+    md: "h-6 w-6",
+    lg: "h-7 w-7",
   };
+
+  const isLightButton = variant === "white" || variant === "secondary" || className?.includes("bg-white");
 
   const content = (
     <>
-      <span>{children}</span>
+      <span className={cn(isLightButton ? "!text-[#111111]" : "")}>{children}</span>
       {icon === "arrow-pill" && (
         <div
-          className="flex items-center justify-center rounded-full bg-white/20 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
+          className={cn(
+            "flex items-center justify-center rounded-full shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+            isLightButton ? "bg-[#111111]/10 !text-[#111111]" : "bg-white/20 text-white",
+            iconContainerSizes[size]
+          )}
         >
-          <ArrowUpRight size={25} className="w-[25px] h-[25px]" />
+          <ArrowUpRight size={14} className={cn("w-3.5 h-3.5", isLightButton ? "!text-[#111111]" : "text-white")} />
         </div>
       )}
       {icon === "arrow-lime" && (

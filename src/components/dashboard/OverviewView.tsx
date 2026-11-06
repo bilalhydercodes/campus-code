@@ -30,10 +30,10 @@ export default function OverviewView({ userName, onNavigateTab }: OverviewViewPr
         {/* Right Action Button */}
         <div className="w-full md:w-[180px] shrink-0 flex justify-center md:justify-end">
           <PrimaryButton
-            variant="primary"
+            variant="white"
             size="md"
             icon="arrow-pill"
-            className="bg-white text-[#111111] hover:bg-[#F2F2EE] border-none shadow-sm px-6 py-3 font-medium text-[14px]"
+            className="!bg-white !text-[#111111] hover:!bg-[#F2F2EE] border-none shadow-sm px-6 py-2.5 font-medium text-[13.5px]"
             onClick={() => onNavigateTab('My Events')}
           >
             Open challenge
